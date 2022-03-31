@@ -24,8 +24,8 @@ export function createElement(type, options={}){
         }
         if(key  === "events"){
             Object.entries(value).forEach(([datakey,datavalue]) => {
-                element.addEventListener(datavalue, function(){
-                    value.fun()
+                element.addEventListener(datavalue, function(e){
+                    return value.fun(e.target);
                 })
             })
             return

@@ -15,13 +15,6 @@ function callBack(){
 }
 
 
-
-const element = createElement("button",{
-    class: "btn",
-    text : "Submit",
-    id:"btn",    
-});
-
 const element1 = createElement("button",{
     class: "btn",
     text : "Submit2",
@@ -33,6 +26,39 @@ const element1 = createElement("button",{
     name: "name"
 });
 
-qs(".container").append(element1);
+
+
+function deleteElement(e){
+    console.log(e.parentElement.remove());
+}
+
+qs(".btn").addEventListener("click",()=>{
+    const name = createElement("input", {
+        type : "text",
+        name:"name",
+        placeholder : "Enter your name"
+    });
+    const email = createElement("input", {
+        type : "email",
+        name:"email",
+        placeholder : "Enter your email"
+    });
+    const div = createElement("div", {
+        class : "wrap"
+    });
+    const btn = createElement("button", {
+        text : "X",
+        class : "delete",
+        events: {
+            event:"click",
+            fun: deleteElement
+        }
+    });
+    qs(".group").append(div);
+    div.append(name);
+    div.append(email);
+    div.append(btn);
+})
+
 
 
